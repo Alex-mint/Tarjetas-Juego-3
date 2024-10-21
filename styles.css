@@ -75,6 +75,12 @@ input {
     margin-right: 40px;
 }
 
+.result {
+    font-size: 28px;
+    color: var(--green);
+    padding-left: 30px;
+}
+
 .btn-start {
     background: var(--green);
     cursor: pointer;

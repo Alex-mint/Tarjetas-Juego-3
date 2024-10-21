@@ -6,6 +6,8 @@ let targetEmoji = null;
 let lockBoard = false;
 let cardCount = document.getElementById('card-qty').value // Начинаем с 4 карточек
 let time = Number(document.getElementById('time').value) * 1000
+let result = document.getElementById('result')
+result.textContent = 0
 
 function startGame() {
     cardCount = document.getElementById('card-qty').value; // Сбрасываем количество карточек до 4 при старте
@@ -109,6 +111,7 @@ function handleCardClick(card, emojiElement) {
     if (card.dataset.emoji === targetEmoji) {
         // Если угадал правильно
         card.classList.add('matched');
+        result.textContent++
         alert('Правильно!');
 
         // Через 2 секунды увеличиваем количество карточек и продолжаем игру
@@ -119,6 +122,7 @@ function handleCardClick(card, emojiElement) {
         }, time);
     } else {
         // Неправильный выбор, карточка остаётся перевёрнутой, но игра продолжается
+        result.textContent = 0
         alert('Неправильно. Попробуй ещё раз.');
     }
 }
