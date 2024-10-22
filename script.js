@@ -12,6 +12,7 @@ result.textContent = 0
 function startGame() {
     cardCount = document.getElementById('card-qty').value; // Сбрасываем количество карточек до 4 при старте
     reset();
+    result.textContent = 0
     setupBoard(cardCount);
     
     // Показать карточки на 2 секунды
@@ -112,7 +113,7 @@ function handleCardClick(card, emojiElement) {
         // Если угадал правильно
         card.classList.add('matched');
         result.textContent++
-        alert('Правильно!');
+        //alert('Правильно!');
 
         // Через 2 секунды увеличиваем количество карточек и продолжаем игру
         setTimeout(() => {
@@ -124,6 +125,7 @@ function handleCardClick(card, emojiElement) {
         // Неправильный выбор, карточка остаётся перевёрнутой, но игра продолжается
         result.textContent = 0
         alert('Неправильно. Попробуй ещё раз.');
+        startGame()
     }
 }
 
